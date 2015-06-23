@@ -1,7 +1,9 @@
 # lena-its-tools
 A set of tools for working with LENA ITS files.
 
-readits_start_end_content.pl: A Perl script that takes a LENA ITS file as input and saves a new file that contains a list of speaker segment types with their start and end times.
+readits_start_end_content.pl: A Perl script that takes a LENA ITS file as input and saves a new file that contains a list of child and adult start and end times, and for child segments, what duration is speech related and what duration is not speech related.
+
+segments.pl: A Perl script that takes a LENA ITS file as input and saves a new file that contains a list of all segment types and their start and end times as output.
 
 readits_count_items.pl: A Perl script that takes a LENA ITS file as input and saves a new file that summarizes how frequent various events (e.g. speaker segments, conversations, subrecordings) were.
 
