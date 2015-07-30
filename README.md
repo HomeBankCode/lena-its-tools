@@ -14,3 +14,5 @@ getIndividualAudioSegments.m: A MATLAB program that plays or saves the waveforms
 getCHAcousticsTS.m: A MATLAB program that gets some basic acoustics (pitch, intensity, and duration) for all the target child segments in a given LENA recording. Assumes readits_start_end_content.pl and getIndividualAudioSegments.m have already been run. Requires getPraatAcoustics.m.
 
 getPraatAcoustics.m: A MATLAB program that calls Praat to get pitch, intensity, and duration for a given WAV file.
+
+its_anonymization: A directory containing programs, and documentation, to remove identifying information from a LENA ITS file. Developed by Melanie Soderstrom's babylanguagelab, https://github.com/babylanguagelab.
