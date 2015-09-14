@@ -15,4 +15,4 @@ getCHAcousticsTS.m: A MATLAB program that gets some basic acoustics (pitch, inte
 
 getPraatAcoustics.m: A MATLAB program that calls Praat to get pitch, intensity, and duration for a given WAV file.
 
-its_anonymization: A directory containing programs, and documentation, to remove identifying information from a LENA ITS file. Developed by Melanie Soderstrom's babylanguagelab, https://github.com/babylanguagelab.
+its_anonymization: A directory containing programs, and documentation, to remove identifying information from  one or multiple LENA ITS files. Developed by Melanie Soderstrom's babylanguagelab, https://github.com/babylanguagelab.
