@@ -7,12 +7,13 @@
 # 2: The (path and) file name of the child output file. E.g. "CHNStartEndUttCryTimese20070225_191245_003110.txt"
 # 3: The (path and) file name of the adult output file. E.g. "ANStartAndEndTimese20070225_191245_003110.txt"
 # 4: The (path and) file name of the combined child + adult output file. E.g. "CHN_AN_Segments_e20070225_191245_003110.txt"
-
 # 5: The mode for dealing with overlap: "IgnoreOverlap", "TreatOverlapAsAdult", "TreatOverlapAsChild", "DeleteOverlap", "IncludeOverlapExcludeIntervening", or "IncludeOverlapIgnoreIntervening" (recommended value is "IgnoreOverlap")
+# 6: The maximum length the recording should be truncated at (in seconds)
 
 use strict;
 use warnings;
 
+my $maxsecs = $ARGV[5];
 print $ARGV[1]; print "\n";
 
 
@@ -33,13 +34,13 @@ while (my $line = <INPUTFILE>){
         my $overlapEndTime = $line;
         $overlapStartTime =~ s/.*startTime="PT//g;
         $overlapStartTime =~ s/S" endTime=.*//g;
-        if ($overlapStartTime >=43200){
+        if ($overlapStartTime >=$maxsecs){
         	last;
         }
         $overlapEndTime =~ s/.*endTime="PT//g;
         $overlapEndTime =~ s/S".*//g;
-        if ($overlapEndTime >= 43200){
-        	$overlapEndTime = 43200;
+        if ($overlapEndTime >= $maxsecs){
+        	$overlapEndTime = $maxsecs;
     	}
     	$totalOverlapTime = $totalOverlapTime + $overlapEndTime - $overlapStartTime;
         
@@ -47,7 +48,7 @@ while (my $line = <INPUTFILE>){
 			print COMBINED_OUTPUTFILE "OLN\t$overlapStartTime\t$overlapEndTime\n";
         }
         
-        if ($overlapEndTime == 43200){
+        if ($overlapEndTime == $maxsecs){
         	last;
         }
         
@@ -60,13 +61,13 @@ while (my $line = <INPUTFILE>){
         my $childCryVfxLen = $line;
         $startTime =~ s/.*startTime="PT//g;
         $startTime =~ s/S" endTime=.*//g;
-        if ($startTime >=43200){
+        if ($startTime >=$maxsecs){
         	last;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
-        if ($endTime >= 43200){
-        	$endTime = 43200;
+        if ($endTime >= $maxsecs){
+        	$endTime = $maxsecs;
     	}
         if ($line=~m/Segment spkr="CHN"/){
 			$childUttLen =~ s/.*childUttLen="PT?//g;
@@ -86,7 +87,7 @@ while (my $line = <INPUTFILE>){
         print CHNOUTPUTFILE "$startTime\t$endTime\t$childUttLen\t$childCryVfxLen\n";
 		print COMBINED_OUTPUTFILE "CHN\t$startTime\t$endTime\t$childUttLen\t$childCryVfxLen\n";
 		
-		if ($realEndTime == 43200){
+		if ($realEndTime == $maxsecs){
         	last;
         }
 		
@@ -97,13 +98,13 @@ while (my $line = <INPUTFILE>){
         my $endTime = $line;
         $startTime =~ s/.*startTime="PT//g;
         $startTime =~ s/S" endTime=.*//g;
-        if ($startTime >=43200){
+        if ($startTime >=$maxsecs){
         	last;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
-        if ($endTime >= 43200){
-        	$endTime = 43200;
+        if ($endTime >= $maxsecs){
+        	$endTime = $maxsecs;
     	}
     	my $realEndTime = $endTime;
         if ($overlapMode eq "DeleteOverlap"){
@@ -113,7 +114,7 @@ while (my $line = <INPUTFILE>){
 		print ANOUTPUTFILE "$startTime\t$endTime\n";
 		print COMBINED_OUTPUTFILE "AN\t$startTime\t$endTime\n";
 		
-		if ($realEndTime == 43200){
+		if ($realEndTime == $maxsecs){
         	last;
         }
         

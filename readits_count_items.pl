@@ -5,12 +5,14 @@
 # take 3 command line arguments:
 # 1: The (path and) file name of the input file. 
 # 2: The (path and) file name of the output file.
-# 3: The maximum length the recording should be truncated at (in seconds)
+# 3: The maximum length the recording should be truncated at (in seconds), or the end time when to stop counting (for full recording, set to 86400)
+# 4: The start time when to start counting (to start at the beginning, set to 0)
 
 use strict;
 use warnings;
 
 my $maxsecs = $ARGV[2];
+my $minsecs = $ARGV[3];
 print $ARGV[0] . "\n";
 
 open INPUTFILE, $ARGV[0] or die "Could not open input file\n";
@@ -54,6 +56,7 @@ my $totalTVNCount = 0;
 my $totalTVFCount = 0;
 my $totalSILCount = 0;
 my $totalConvoCount = 0;
+my $totalConvoTurnCount = 0;
 my $totalRecordingCount = 0;
 
 while (my $line = <INPUTFILE>) {
@@ -64,6 +67,7 @@ while (my $line = <INPUTFILE>) {
     my $endTime = 0;
     my $uttTime = 0;
     my $cryVfxTime = 0;
+	my $convoTurnCount = 0;
     
     if ($line=~ m/All about the Bars/){
     	last;
@@ -76,6 +80,8 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
@@ -95,6 +101,8 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
@@ -114,6 +122,8 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
@@ -133,6 +143,8 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
@@ -154,6 +166,8 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
@@ -185,6 +199,8 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
@@ -204,6 +220,8 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
@@ -223,6 +241,8 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
@@ -242,6 +262,8 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
@@ -261,6 +283,8 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
@@ -280,6 +304,8 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
@@ -299,6 +325,8 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
@@ -318,6 +346,8 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
@@ -337,6 +367,8 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
@@ -356,6 +388,8 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
@@ -375,14 +409,20 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
         if ($endTime >= $maxsecs){
         	$endTime = $maxsecs;
     	}
+		$convoTurnCount = $line;
+		$convoTurnCount =~ s/.*turnTaking="//g;
+		$convoTurnCount =~ s/".*//g;
     	$totalConvoTime = $totalConvoTime + $endTime - $startTime;
     	$totalConvoCount = $totalConvoCount+1;
+		$totalConvoTurnCount = $totalConvoTurnCount+$convoTurnCount;
     }
     elsif ($line=~ m/Recording num="/){
     	$startTime = $line;
@@ -391,6 +431,8 @@ while (my $line = <INPUTFILE>) {
         $startTime =~ s/S" endTime=.*//g;
         if ($startTime >=$maxsecs){
         	last;
+        } elsif ($startTime < $minsecs){
+        	next;
         }
         $endTime =~ s/.*endTime="PT//g;
         $endTime =~ s/S".*//g;
@@ -425,6 +467,7 @@ print OUTPUTFILE "TVN\t$totalTVNTime\t$totalTVNCount\n";
 print OUTPUTFILE "TVF\t$totalTVFTime\t$totalTVFCount\n";
 print OUTPUTFILE "SIL\t$totalSILTime\t$totalSILCount\n";
 print OUTPUTFILE "Convo\t$totalConvoTime\t$totalConvoCount\n";
+print OUTPUTFILE "ConvoTurns\tNA\t$totalConvoTurnCount\n";
 print OUTPUTFILE "Recording\t$totalRecordingTime\t$totalRecordingCount\n";
 
 close(INPUTFILE);
