@@ -2,6 +2,11 @@
 
 # Anne S. Warlaumont
 
+# This tool allows you to create new files with: 
+# 1.) Child vocalization start and end times, as well as the duration of speech related (utt) and not speech related (cry);
+# 2.) Adult vocalization start and end times; and 
+# 3.) Child vocalization start and end times, as well as the duration of speech related (utt) and not speech related (cry) AND Adult vocalization start and end times
+
 # take 5 command line arguments:
 # 1: The (path and) file name of the input file. E.g. "e20070225_191245_003110.its"
 # 2: The (path and) file name of the child output file. E.g. "e20070225_191245_003110_CHNStartEndUttCryTimes.txt"
