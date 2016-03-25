@@ -4,11 +4,11 @@
 
 # take 5 command line arguments:
 # 1: The (path and) file name of the input file. E.g. "e20070225_191245_003110.its"
-# 2: The (path and) file name of the child output file. E.g. "CHNStartEndUttCryTimese20070225_191245_003110.txt"
-# 3: The (path and) file name of the adult output file. E.g. "ANStartAndEndTimese20070225_191245_003110.txt"
-# 4: The (path and) file name of the combined child + adult output file. E.g. "CHN_AN_Segments_e20070225_191245_003110.txt"
+# 2: The (path and) file name of the child output file. E.g. "e20070225_191245_003110_CHNStartEndUttCryTimes.txt"
+# 3: The (path and) file name of the adult output file. E.g. "e20070225_191245_003110_ANStartAndEndTimes.txt"
+# 4: The (path and) file name of the combined child + adult output file. E.g. "e20070225_191245_003110_CHN_AN_Segments.txt"
 # 5: The mode for dealing with overlap: "IgnoreOverlap", "TreatOverlapAsAdult", "TreatOverlapAsChild", "DeleteOverlap", "IncludeOverlapExcludeIntervening", or "IncludeOverlapIgnoreIntervening" (recommended value is "IgnoreOverlap")
-# 6: The maximum length the recording should be truncated at (in seconds)
+# 6: The maximum length the recording should be truncated at (in seconds). For a 16 hour recording, use 57600.
 
 use strict;
 use warnings;
