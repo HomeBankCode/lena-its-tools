@@ -2,10 +2,12 @@
 
 # Anne S. Warlaumont
 
-# take 3 command line arguments:
-# 1: The (path and) file name of the input file. 
-# 2: The (path and) file name of the output file.
-# 3: The maximum length the recording should be truncated at (in seconds), or the end time when to stop counting (for full recording, set to 86400)
+# This tool allows you to create a .txt output file with the total duration and total count of various events.
+
+# Takes 3 command line arguments:
+# 1: The (path and) file name of the input .its file. (e.g., ~/Desktop/Participants/WW04/e20131126_155022_009145.its)
+# 2: The (path and) file name of the output file. (e.g., ~/Desktop/Participants/WW04/CountItemsOutput.txt)
+# 3: The maximum length the recording should be truncated at (in seconds), or the end time when to stop counting (for 24 hour recording, set to 86400; for 16 hour recording, set to 57600s)
 # 4: The start time when to start counting (to start at the beginning, set to 0)
 
 use strict;
