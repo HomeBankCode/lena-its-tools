@@ -1,3 +1,5 @@
+# Gina M. Pretzer
+#
 # This tool allows you to run the "readits_start_end_content.pl" tool on multiple .its files.
 # The output information for each .its file is written into an individual .csv file.
 #
@@ -20,13 +22,13 @@
 # 10.) Run the file (sh RunFolder_readits.sh )
 
 
-cd ~/desktop/Gina/Participants
-for folder in WW*
+cd /Volumes/Research/WWTranscription/WWTranscriptionProject/Participants/  ## The main folder "Participants" contains the subfolders
+for folder in WW*  ## The subfolders are named for each participant, all beginning with "WW"
 	do cd $folder
 		for itsfile in *.its
 			do outfile1=`echo $itsfile | sed 's/\.its/CHNStartEndUttCryTimes\.txt/g'`;
-			   outfile2=`echo $itsfile | sed 's/\.its/ANStartAndEndTime$itsfile\.txt/g'`;
-			   outfile3=`echo $itsfile | sed 's/\.its/CHN_AN_Segments_$itsfile\.txt/g'`;  
+			   outfile2=`echo $itsfile | sed 's/\.its/ANStartAndEndTime\.txt/g'`;
+			   outfile3=`echo $itsfile | sed 's/\.its/CHN_AN_Segments\.txt/g'`;  
 			   perl ~/Desktop/lena-its-tools/readits_start_end_content.pl $itsfile $outfile1 $outfile2 $outfile3 "IgnoreOverlap" 57600
 			done
 	cd ..
