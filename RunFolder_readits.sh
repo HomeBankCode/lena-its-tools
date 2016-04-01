@@ -9,20 +9,20 @@
 # Instructions:
 # 1.) To use this tool, have all desired .its files in a folder of its own. You may nest folders for each participant within the overall folder. 
 #     In this example, the "Participants" folder holds subfolders for each participant where the .its files are stored (e.g. WW01).
-# 2.) Enter the path to the main folder containing the desired .its files (e.g. "~/desktop/Gina/Participants"
-# 3.) Specify any subfolders within the main folder
+# 2.) In line 25, enter the path to the main folder containing the desired .its files (e.g. "~/desktop/Gina/Participants")
+# 3.) In line 26, specify any subfolders within the main folder
 #	  All the subfolders are named starting with WW, so the * allows for all the WW folders to be opened 
 # 4.) Specify the .its file
-# 5.) Name the output file
-#	  This adds "_out" to the end of the .its filename, and changes the ".its" suffix to ".csv", since the output file is a .csv file
-# 6.) Set the path for the "readits_start_end_content.pl" file (e.g. "~/Desktop/lena-its-tools/readits_start_end_content.pl")
+# 5.) Name the output files (lines 29-31)
+#	  This replaces the ".its" ending of the filename to rename the file, and changes the ".its" suffix to ".txt", since the output files are .txt files
+# 6.) In line 32, set the path for the "readits_start_end_content.pl" file (e.g. "~/Desktop/lena-its-tools/readits_start_end_content.pl")
 # 7.) Save all changes
 # 8.) Launch Terminal
 # 9.) Navigate to directory where "RunFolder_readits.sh" is located
-# 10.) Run the file (sh RunFolder_readits.sh )
+# 10.) Run this file (sh RunFolder_readits.sh )
 
 
-cd /Volumes/Research/WWTranscription/WWTranscriptionProject/Participants/  ## The main folder "Participants" contains the subfolders
+cd /Volumes/Research/WWTranscription/WWTranscriptionProject/Participants/  ## In this example, "Participants" is the folder that contains the subfolders with the .its files
 for folder in WW*  ## The subfolders are named for each participant, all beginning with "WW"
 	do cd $folder
 		for itsfile in *.its
