@@ -16,3 +16,7 @@ getCHAcousticsTS.m: A MATLAB program that gets some basic acoustics (pitch, inte
 getPraatAcoustics.m: A MATLAB program that calls Praat to get pitch, intensity, and duration for a given WAV file.
 
 its_anonymization: A directory containing programs, and documentation, to remove identifying information from  one or multiple LENA ITS files. Developed by Melanie Soderstrom's babylanguagelab, https://github.com/babylanguagelab.
+
+RunFolder_segments.sh: This a shell script that allows you to run "segments.pl" on an entire folder of LENA ITS files. This will create an output CSV file that contains a list of all segment types and their start and end times.
+
+RunFolder_readits.sh: This is a shell script that allows you to run "readits_start_end_content.pl" on an entire folder of LENA ITS files. This will create a new output file for each input file with: 1) Child vocalization start and end times with duration of what is speech related and what is not speech related; 2) Adult vocalization start and end times; and 3) Child vocalization start and end itmes with duration of what is speech related and what is not speech related AND adult vocalization start and end times.
