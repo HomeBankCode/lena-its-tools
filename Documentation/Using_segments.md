@@ -2,7 +2,7 @@
 
 The “segments.pl” script allows you to get specific information about each vocalization in a LENA recording, using the .its file. The output .csv file will have columns indicating the type of vocalization, as well as the start and end times of each vocalization.
 
-![alt text](/https://github.com/gpretzer/DocumentationPics/blob/master/Segments_Pic1.jpg "Title")
+![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Segments_Pic1.jpg "Title")
 
 How to use "segments.pl" on a single .its file (on a Mac):
 
