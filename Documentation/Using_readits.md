@@ -3,19 +3,21 @@
 
 The “readits\_start\_end\_content.pl” script allows you to input an .its file and create new output files with 1.) Child vocalization start and end times, as well as the duration of speech related (utt) and not speech related (cry) vocalizations; 2.) Adult vocalization start and end times; and 3.) Child vocalization start and end times, as well as the duration of speech related (utt) and not speech related (cry) vocalizations, **AND** Adult vocalization start and end times. Output files will be saved in the same folder where the input file is located.
 
+Output 1:
 
-![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Readits_Pic1.jpg "Output 1")
+![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Readits_Pic1.jpg "Title")
 
 The columns are: CHN Start Time, CHN End Time, Duration (if speech related), Duration (if cry)
 
+Output 2:
 
-
-![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Readits_Pic2.jpg "Output 2")
+![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Readits_Pic2.jpg "Title")
 
 The columns are:  AN Start Time, AN End Time
 
+Output 3: 
 
-![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Readits_Pic3.jpg "Output 3")
+![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Readits_Pic3.jpg "Title")
 
 The columns are: Type of Vocalization (AN or CHN), Start Time of Utterance, End Time of Utterance, Duration (if speech related), Duration (if cry)
 
