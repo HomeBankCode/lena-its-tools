@@ -1,7 +1,7 @@
 # Using “readits_count_items.pl” #
 
 
-The “readits\_count\_items.pl” script allows you to input an .its file and create a .txt output file with the total duration and frequency (count) of various events.
+The “readits\_count\_items.pl” script allows you to input an .its file and create a .txt output file with the total duration and frequency (count) of various events. Output file is written into the folder that holds the input file.
 
 ![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/CountItems_Pic1.jpg "Title")
 
