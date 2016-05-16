@@ -3,7 +3,8 @@
 # Anne S. Warlaumont
 #
 # This tool allows you to find the start time, end time, and type of vocalization for each vocalization in a LENA recording, using the corresponding .its file.
-# The output information is written into .csv file.
+# The output information is written into .csv file, which is useful for sequence analyses.
+# More detailed instructions are available at: https://github.com/HomeBankCode/lena-its-tools/blob/master/Documentation/Using_segments.md
 #
 # Takes the following command line arguments:
 # The path and file name of the input its file (e.g. "~/lena-its-tools/segments.pl)
