@@ -1,7 +1,8 @@
 # Using "recorderpauses.pl" #
-
+#
 # This tool allows you to find out the exact time(s) a recorder was paused. 
 # This is useful when looking at an event series and determining whether the time between vocalizations are really an absence of speech or just periods of time when the recorder was paused.
+#
 
 [alt text](https://github.com/gpretzer/DocumentationPics/blob/master/RecorderPauses_Pic1.jpg "Title")
 
