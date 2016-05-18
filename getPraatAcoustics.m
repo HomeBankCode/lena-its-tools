@@ -4,6 +4,8 @@ function [duration,meanf0,dB] = getPraatAcoustics(wavFileDir,wavFileNoExt)
 %
 % Example usage:
 % getPraatAcoustics('/Users/awarlau/Dropbox/LENAInteraction/MemphisLENARecordings/Segments/','e20110203_113442_007541_Segment_1_AN')
+% This script is called by "getCHacousticsTS.m"
+
 
 % Delete the Praat output file:
 if exist('tempPraatMeasurements.txt','file')==2
