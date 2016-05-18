@@ -21,7 +21,7 @@ How to use "getIndividualAudioSegments" (on a Mac):
       * '~/Desktop/Gina/Participants/WW05/Segments/e20131210\_144819\_009143' (this sends the individual .wav files to the "Segments" folder)
     * buffer = should be in seconds and will add some time to the beginning and ending of each audio segment before extracting it 
       * e.g., '1'
-    * e.g., '/Volumes/Research/WWTranscription/WWTranscriptionProject/Participants/WW05/e20131210\_144819\_009143CHN\_AN\_Segments.txt','/Volumes/Research/WWTranscription/WWTranscriptionProject/Participants/WW05/e20131210\_144819\_009143.wav','/Volumes/Research/WWTranscription/WWTranscriptionProject/Participants/WW05/Segments/e20131210\_144819\_009143','1');
+    * e.g., '~/Desktop/Gina/Participants/WW05/e20131210\_144819\_009143CHN\_AN\_Segments.txt','~/Desktop/Gina/Participants/WW05/e20131210\_144819\_009143.wav','~/Desktop/Gina/Participants/WW05/Segments/e20131210\_144819\_009143','1');
   * Press Return
     
 ![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/GetIndivAudio_Pic1.jpg "Title")
