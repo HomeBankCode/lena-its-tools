@@ -1,14 +1,15 @@
 #!/usr/local/bin/perl
 
 # Anne S. Warlaumont
-# Last update: February 14, 2013
+# Last update: May 16, 2016
 
-# Example of how to run this script: perl segmentsbysubrecording.pl /Users/awarlau/LENAInteraction/MemphisLENARecordings/postitsfiles/e20080828_165836_003407_PauseTimes.txt /Users/awarlau/LENAInteraction/MemphisLENARecordings/postitsfiles/e20080828_165836_003407ANStartAndEndTimes_IncludeOverlap.txt 
+# This tool identifies segments within subrecordings of a LENA recording.
 
 # Take the following command line arguments:
 # 1: The (path and) filename of the pause times file. E.g. "e20080304_150244_003407_PauseTimes.txt"
 # 2: The (path and) filename of the segment times input file. E.g. "e20080304_150244_003407ANStartAndEndTimes_IncludeOverlap.txt"
 # 3: The column of the segment times input file that contains the start time. For single speaker files, this will be the first column. For combined speaker files, this will be the second.
+# e.g. perl segmentsbysubrecording.pl /Users/awarlau/LENAInteraction/MemphisLENARecordings/postitsfiles/e20080828_165836_003407_PauseTimes.txt /Users/awarlau/LENAInteraction/MemphisLENARecordings/postitsfiles/e20080828_165836_003407ANStartAndEndTimes_IncludeOverlap.txt 
 
 use strict; use warnings;
 
