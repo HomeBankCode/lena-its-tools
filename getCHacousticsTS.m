@@ -2,6 +2,30 @@ function getCHacousticsTS(StartEndFile,wavFileDir,wavfilebase,outFile)
 
 % Anne S. Warlaumont
 
+% Before running this program, run the "gteIndividualAudioSegments.m"program on the combined AN and CHN file for the recording
+% This program will run on the audio segments you created in the the
+% "Segments folder"
+%
+% Instructions:
+% 1.) Be sure you have downloaded the "getPraatAcoustics.m" script, as this
+% script calls upon it.
+% 2.) In the command window, type: getCHacousticsTS(StartEndFile,wavFileDir,wavfilebase,outFile) where:
+%     StartEndFile = The name of the combined AN and CHN .txt file
+%         e.g., '~/Desktop/Gina/Participants/WW05/e20131210_144819_009143CHNStartEndUttCryTimes.txt'
+%     wavFileDir = The directory where the audio segments were created
+%     ("Segments" folder)
+%         e.g., '~/Desktop/Gina/Participants/WW05/Segments/e20131210_144819_009143'
+%     wavfilebase = The name base for the .wav file segments
+%         e.g., 'e20131210_144819_009143' 
+%     outFile = The path and name of the output file                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            = Should be in seconds and will add some time to the beginning and ending of each audio segment before extracting it 
+%         e.g.,
+%         '~/Desktop/Gina/Participants/WW05/e20131210_144819_009143CHAcoustics_Output.txt'
+%     e.g., '~/Desktop/Gina/Participants/WW05/e20131210_144819_009143CHNStartEndUttCryTimes.txt','~/Desktop/Gina/Participants/WW05/Segments/','e20131210_144819_009143','~/Desktop/Gina/Participants/WW05/e20131210_144819_009143CHAcoustics_Output.txt');
+% 3.) Press Return to run the program
+
+
+
+
 SEF_fid = fopen(StartEndFile);
 StartEndTimes = textscan(SEF_fid,'%s %f %f %*[^\n]');
 fclose(SEF_fid);
