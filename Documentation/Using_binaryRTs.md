@@ -4,9 +4,9 @@ This tool identifies when a sequence of 1 or more child (or adult) segments is p
 This program returns two output files. The first output file gives information about the child vocalizations and responses, and the second gives information about the adult vocalizations and responses.
 This program requires that you have previously run "readits\_start\_end\_content.pl" on the recording's .its file.
 
-![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Segments_Pic1.jpg "Title")
+![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Binary_Pic1.jpg "Title")
 
-![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Segments_Pic1.jpg "Title")
+![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Binary_Pic2.jpg "Title")
 
 How to use "get\_binary\_RTs.pl" on a single .its file (on a Mac):
 
@@ -15,7 +15,7 @@ How to use "get\_binary\_RTs.pl" on a single .its file (on a Mac):
    * In the command line type the path to the directory
      * e.g., "~/Desktop/lena-its-tools/"
      
-![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Segments_Pic2.jpg "Title")
+![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Binary_Pic3.jpg "Title")
 
 * Run “get\_binary\_RTs.pl” with the location and name of the its file as the first argument and the location and name of the desired segments csv output file as the second argument.
   * In the command line, type “get\_binary\_RTs.pl” which calls the script and readies it to run.
@@ -32,4 +32,4 @@ How to use "get\_binary\_RTs.pl" on a single .its file (on a Mac):
   * Press Return to run the entire line.
     * e.g. "perl recorderpauses.pl ~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145CHN\_AN\_Segments.txt  ~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145ChildResponseProb.txt ~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145AdultResponseProb.txt true 1"
     
-![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Segments_Pic3.jpg "Title")
+![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Binary_Pic4.jpg "Title")
