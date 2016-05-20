@@ -1,4 +1,4 @@
-# Using "getIndividualAudioSegments.m" # 
+# Using "getIndividualAudioSegments.m" 
 
 Before running this program, run the "readits\_start\_end\_content.pl" program on the recording .its file
 You will use the combined AN and CHN file as input for this program

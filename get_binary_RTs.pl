@@ -13,6 +13,15 @@
 # 4. Whether turns with overlap in between should be excluded or not (if yes, 'true'; if not, 'false')
 # 5. The CHN Utt duration cutoff above which a child vocalization is said to consider speech-related material
 
+# Instructions:
+# 1. Open up a unix shell (e.g. the Terminal application under Utilities on Mac or Cygwin on Windows)
+# 2. Navigate to the directory where this file is located (e.g. "~/Desktop/lena-its-tools/")
+# 3. Run recorderpauses.pl with the path and file name of the combined AN and CHN input file as the first argument; the path and name file of the child response probability as the 2nd argument;
+#    the path and file name of the adult response probability output file as the 3rd argument; whether turns with overlap in between should be excluded as the 4th argument;
+#    and the CHN Utt duration cutoff above which a child vocalization is said to consider speech-related material as the 5th argument. 
+#   (e.g. "perl recorderpauses.pl ~Desktop/Gina/Participants/WW04/e20131126_155022_009145CHN_AN_Segments.txt  ~Desktop/Gina/Participants/WW04/e20131126_155022_009145ChildResponseProb.txt ~Desktop/Gina/Participants/WW04/e20131126_155022_009145AdultResponseProb.txt true 1")
+
+
 use strict; use warnings;
 
 my $inputfile = $ARGV[0];

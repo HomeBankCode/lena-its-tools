@@ -8,12 +8,14 @@ How to use “RunFolder_readits.sh” on a Mac:
 * Open “RunFolder_readits.sh” in a text editor, such as Text Wrangler
   * Follow the instructions in the script to customize to your own folders and subfolders.
 * Launch Terminal
-  * Navigate to the directory where “RunFolder_readits.sh” is located
+  * Navigate to the directory where “RunFolder\_readits.sh” is located
     * In the command line type the path to the directory
       * e.g. “~/Desktop/lena-its-tools/”
 
+![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/RunFolder_readits_Pic1.jpg "Title")
 
-
-
-![alt text](/path/img.jpg "Title")
+  * To run the program, type "sh RunFolde_readits.sh" into the command line
  
+ ![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/RunFolder_readits_Pic2.jpg "Title")
+ 
+* Output files for each .its file will be saved in the same subfolder that holds the .its file 

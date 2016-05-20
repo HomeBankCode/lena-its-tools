@@ -16,7 +16,7 @@ How to use "recorderpauses.pl" on a single .its file (on a Mac):
 ![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/RecorderPauses_Pic2.jpg "Title")
 
 * Run “recorderpauses.pl” with the location and name of the its file as the first argument and the location and name of the desired segments csv output file as the second argument.
-  * In the command line, type “perl segments.pl” which calls the script and readies it to run.
+  * In the command line, type “perl recorderpauses.pl” which calls the script and readies it to run.
   * Next, add the first argument, which is the name of the its file you will use to run the “recorderpauses.pl”.
     * e.g. “~/Desktop/Gina/Participants/WW04/e20131126\_155022\_009145.its”
   * Continue by typing in the second argument, which is the path and name of the output .txt file.
