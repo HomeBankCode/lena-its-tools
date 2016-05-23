@@ -1,5 +1,5 @@
 # lena-its-tools
-A set of tools for working with LENA ITS files.
+This repository hosts a set of tools for working with LENA ITS files. These tools use LENA ITS files as input and will create output files for analysis.  More detailed instructions and documentation for select files are located at: https://github.com/HomeBankCode/lena-its-tools/tree/master/Documentation
 
 readits_start_end_content.pl: A Perl script that takes a LENA ITS file as input and saves a new file that contains a list of child and adult start and end times, and for child segments, what duration is speech related and what duration is not speech related.
 
