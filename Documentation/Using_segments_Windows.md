@@ -25,6 +25,6 @@ How to use "segments.pl" on a single .its file (on a Windows machine):
     
 ![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/segmentspic3.JPG "Title")
 
-* The output .csv file will save in the same folder that holds the .its file and script.
+* The output segments.csv file will save in the same folder that holds the .its file and script.
 
 ![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/segmentspic4.JPG "Title")
