@@ -18,10 +18,10 @@
 
 use strict; use warnings;
 
-open INPUTFILE, $ARGV[0] or die "Could not open input file " . $ARGV[0] . "\r\n";
-open OUTPUTFILE, ">", $ARGV[1] or die "Could not open output file " . $ARGV[1] . "\r\n";
+open INPUTFILE, $ARGV[0] or die "Could not open input file " . $ARGV[0] . "\n";
+open OUTPUTFILE, ">", $ARGV[1] or die "Could not open output file " . $ARGV[1] . "\n";
 
-print OUTPUTFILE "segtype,startsec,endsec\r\n";
+print OUTPUTFILE "segtype,startsec,endsec\n";
 
 while (my $line = <INPUTFILE>){
 	
@@ -49,7 +49,7 @@ while (my $line = <INPUTFILE>){
 		$endTime =~ s/.*endTime="PT//g;
 		$endTime =~ s/S".*//g;
 		
-		print OUTPUTFILE "$segtype,$startTime,$endTime\r\n";
+		print OUTPUTFILE "$segtype,$startTime,$endTime\n";
 	}
 	
 }
