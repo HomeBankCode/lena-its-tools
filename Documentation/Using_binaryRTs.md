@@ -30,6 +30,6 @@ How to use "get\_binary\_RTs.pl" on a single .its file (on a Mac):
   * Finally, designate the CHN Utt duration cutoff (in seconds), above which a child vocalization is said to consider speech-related material, as the fifth argument.
   	* e.g., "1" 
   * Press Return to run the entire line.
-    * e.g. "perl recorderpauses.pl ~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145CHN\_AN\_Segments.txt  ~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145ChildResponseProb.txt ~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145AdultResponseProb.txt true 1"
+    * e.g. "perl get\binary\RTs.pl ~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145CHN\_AN\_Segments.txt  ~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145ChildResponseProb.txt ~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145AdultResponseProb.txt true 1"
     
 ![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Binary_Pic4.jpg "Title")
