@@ -22,14 +22,16 @@ How to use "get\_binary\_RTs.pl" on a single .its file (on a Mac):
   * Next, add the first argument, which is the combined AN and CHN input file created by the "readits\_start\_end\_content.pl" tool.
     * e.g. “~Desktop/Gina/Participants/WW04/e20131126\_15502\2_009145CHN\_AN\_Segments.txt”
   * Continue by typing in the second argument, the path and name file of the child response probability output file.
+    * the value will be 0 if a response was received within 1 s and 1.1 if a response was not received within 1 s
     * e.g. “~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145ChildResponseProb.txt”
   * Then, add the third argument, which is the path and file name of the adult response probability output file.
+    * the value will be 0 if a response was received within 1 s and 1.1 if a response was not received within 1 s
     * e.g., "~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145AdultResponseProb.txt"
   * Designate whether turns with overlap in between should be excluded, as the fourth argument.
   	* e.g., "true" for yes and "false" for no
   * Finally, designate the CHN Utt duration cutoff (in seconds), above which a child vocalization is said to consider speech-related material, as the fifth argument.
-  	* e.g., "1" 
+  	* e.g., "0" 
   * Press Return to run the entire line.
-    * e.g. "perl get\binary\RTs.pl ~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145CHN\_AN\_Segments.txt  ~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145ChildResponseProb.txt ~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145AdultResponseProb.txt true 1"
+    * e.g. "perl get\binary\RTs.pl ~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145CHN\_AN\_Segments.txt  ~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145ChildResponseProb.txt ~Desktop/Gina/Participants/WW04/e20131126\_155022\_009145AdultResponseProb.txt true 0"
     
 ![alt text](https://github.com/gpretzer/DocumentationPics/blob/master/Binary_Pic4.jpg "Title")
