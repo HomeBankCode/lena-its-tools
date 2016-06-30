@@ -8,8 +8,8 @@
 
 # Take 4 command line arguments: 
 # 1. The name of the combined AN and CHN input file
-# 2. The name of the child response probability output file
-# 3. The name of the adult response probability output file
+# 2. The name of the child response output file (the value will be 0 if a response was received within 1 s and 1.1 if a response was not received within 1 s)
+# 3. The name of the adult response output file (the value will be 0 if a response was received within 1 s and 1.1 if a response was not received within 1 s)
 # 4. Whether turns with overlap in between should be excluded or not (if yes, 'true'; if not, 'false')
 # 5. The CHN Utt duration cutoff above which a child vocalization is said to consider speech-related material
 
@@ -19,7 +19,7 @@
 # 3. Run recorderpauses.pl with the path and file name of the combined AN and CHN input file as the first argument; the path and name file of the child response probability as the 2nd argument;
 #    the path and file name of the adult response probability output file as the 3rd argument; whether turns with overlap in between should be excluded as the 4th argument;
 #    and the CHN Utt duration cutoff above which a child vocalization is said to consider speech-related material as the 5th argument. 
-#   (e.g. "perl recorderpauses.pl ~Desktop/Gina/Participants/WW04/e20131126_155022_009145CHN_AN_Segments.txt  ~Desktop/Gina/Participants/WW04/e20131126_155022_009145ChildResponseProb.txt ~Desktop/Gina/Participants/WW04/e20131126_155022_009145AdultResponseProb.txt true 1")
+#   (e.g. "perl recorderpauses.pl ~Desktop/Gina/Participants/WW04/e20131126_155022_009145CHN_AN_Segments.txt  ~Desktop/Gina/Participants/WW04/e20131126_155022_009145ChildResponse.txt ~Desktop/Gina/Participants/WW04/e20131126_155022_009145AdultResponse.txt true 1")
 
 
 use strict; use warnings;
