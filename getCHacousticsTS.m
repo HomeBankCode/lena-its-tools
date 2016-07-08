@@ -19,7 +19,7 @@ function getCHacousticsTS(SegmentsFile,wavFileDir,wavfilebase,outFile)
 %     For example: '~/Desktop/Gina/Participants/WW05/e20131210_144819_009143CHNStartEndUttCryTimes.txt','~/Desktop/Gina/Participants/WW05/Segments/','e20131210_144819_009143','~/Desktop/Gina/Participants/WW05/e20131210_144819_009143CHAcoustics_Output.txt');
 % 3.) Press Return to run the program
 
-speaker = 'CHNSP';
+speakers = 'CHNSP';
 
 SEF_fid = fopen(SegmentsFile);
 StartEndTimes = textscan(SEF_fid,'%s %f %f','Delimiter',',','HeaderLines',1);
@@ -33,6 +33,7 @@ fprintf(outfid,'wavfile,speaker,start,end,duration,meanf0,dB\n');
 
 countCH = 0;
 for n = 1:size(StartEndTimes{1,1},1)
+	speaker = StartEndTimes{1,1}{n};
 	if sum(strcmp(speaker,speakers)>0)
 	    wavFileName = [wavFileDir,wavfilebase,'_Segment_',num2str(n),'_',speaker,'.wav'];
 	    wavFileNoExt = [wavfilebase,'_Segment_',num2str(n),'_',speaker];
