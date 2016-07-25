@@ -20,7 +20,7 @@ def relabel_by_timebin(wavfile,outfile,coding_start_time,coding_end_time,bin_siz
         pygsound = pyglet.media.load('temp.wav',streaming=False)
         raw_input("Press Enter to play the sound")
         pygsound.play()
-        raw_input("Please enter the codes (no spaces between) for the types of voices you heard in the segment that just played. Codes: C for child wearing the recorder, X for another child, A for adult. Press enter when you are done entering the codes, then the next sound snippet will automatically play.")
+        raw_input("Please enter the codes (no spaces between) for the types of voices you heard in the segment that just played. Codes: c for child wearing the recorder, x for another child, a for adult. Press enter when you are done entering the codes, then the next sound snippet will automatically play. Press r to replay the segment. Press b to return to the previous segment.")
     
     outf.close()
     
