@@ -1,6 +1,6 @@
 # Using the output of segments.pl, play all segments meeting certain criteria, prompt the user to relabel who is speaking, and save output to a CSV file.
 
-import pyglet, scipy.io.wavfile, numpy
+import pyglet, scipy.io.wavfile, numpy, os.path
 
 def relabel_by_timebin(wavfile,outfile,coding_start_time,coding_end_time,bin_size):
     
@@ -8,9 +8,20 @@ def relabel_by_timebin(wavfile,outfile,coding_start_time,coding_end_time,bin_siz
     # Speaker types include: C (child wearing the recorder), X (other child), A (adult)
     
     sr, sounddata = scipy.io.wavfile.read(wavfile)
-    outf = open(outfile,'w')
-    outf.write('startSeconds,endSeconds,userInput,containsTargetChild,containsOtherChild,containsAdult\n')
     
+    # If the output file already exists, use it to get set coding_start_time to pick up where last left off, and append to the output file rather than rewriting it. If the output file does not already exist, create it and the header line.
+    if os.path.isfile(outfile):
+        outf = open(outfile,'r')
+        outfLines = outf.readlines()
+        if len(outfLines)>1:
+            lastOutfLine = outfLines[-1]
+            coding_start_time = float(lastOutfLine.split(',')[0]) + bin_size 
+        outf.close()
+        outf = open(outfile,'a')
+    else:
+        outf = open(outfile,'w')
+        outf.write('startSeconds,endSeconds,userInput,containsTargetChild,containsOtherChild,containsAdult\n')
+        
     for playstart in numpy.arange(coding_start_time,coding_end_time,bin_size):
         if playstart+bin_size > coding_end_time:
             playend = coding_end_time
@@ -26,7 +37,7 @@ def relabel_by_timebin(wavfile,outfile,coding_start_time,coding_end_time,bin_siz
         containsOtherChild = "o" in userInput
         containsAdult = "a" in userInput
         outf.write(str(playstart) + ',' + str(playend) + ',' + userInput + ',' + str(containsTargetChild) + ',' + str(containsOtherChild) + ',' + str(containsAdult) + '\n')
-        # To do: Make it so that if outfile already exists, it picks up the coding from where the listener left off.
+        # To do: Add instructions for what to code (any sound by the vocal tract of nontrivial loudness. Vegetative cries, unusually audible (above baseline for the person in the current context) breathing.
         
     outf.close()
     
