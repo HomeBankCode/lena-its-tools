@@ -30,14 +30,13 @@ def relabel_by_timebin(wavfile,outfile,coding_start_time,coding_end_time,bin_siz
         segsounddata = sounddata[playstart*sr:playend*sr]
         scipy.io.wavfile.write('temp.wav',sr,segsounddata)
         pygsound = pyglet.media.load('temp.wav',streaming=False)
-        raw_input("\nPress Enter to play the sound. Listen carefully because you will only get one opportunity to listen.")
+        raw_input("\n***Instructions***\n\nListen carefully because you will only get one opportunity to listen.\nBe on the lookout for any clearly audible vocalization that is primarily\ncommunicative or playful, such as speech, babble, cooing, crying, sighing,\nlaughing, raspberries, clicks, etc. Please ignore vegetative sounds,\nsuch as heavy breathing, hiccups, sneezes, sniffles, and coughs, unless they\nappear to have been produced with a communicative or playful purpose). You\nwill be asked to enter the codes (no spaces between) for the types of voices\nyou heard in the segment that just played.\n\nCodes: t for child wearing the recorder, o for another child, a for adult.\nIf there are multiple voices present, enter the multiple codes without spaces\nin between. Order of the codes does not matter. Leave the space blank if\nyou didn't hear any communicative or playful vocalizations.\n\nPress Enter to play the sound. Press control+c to quit the labeling session.")
         pygsound.play()
-        userInput = raw_input("\nPress control+c to quit the labeling session.\n\n***Instructions***\nPlease enter the codes (no spaces between) for the types of voices you heard in the segment that just played.\nCodes: t for child wearing the recorder, o for another child, a for adult.\nIf there are multiple voices present, enter the multiple codes without spaces in between.\nOrder of the codes does not matter.\nLeave the codes blank if you didn't hear any voices. \n\nType the codes for the voices you heard here, then press return: ")
+        userInput = raw_input("\nType the codes for the voices you heard here, then press return: ")
         containsTargetChild = "t" in userInput
         containsOtherChild = "o" in userInput
         containsAdult = "a" in userInput
         outf.write(str(playstart) + ',' + str(playend) + ',' + userInput + ',' + str(containsTargetChild) + ',' + str(containsOtherChild) + ',' + str(containsAdult) + '\n')
-        # To do: Add instructions for what to code (any sound by the vocal tract of nontrivial loudness. Vegetative cries, unusually audible (above baseline for the person in the current context) breathing.
         
     outf.close()
     
