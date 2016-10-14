@@ -1,8 +1,3 @@
-#!/usr/local/bin/perl
-
-# Anne S. Warlaumont
-# Last update: May 16, 2016
-
 # This tool allows you to find out the exact time(s) a recorder was paused. 
 
 # Take the following command line arguments:
@@ -15,11 +10,9 @@
 # 3. Run recorderpauses.pl with the path and file name of the its file as the first argument and the path and name of the desired txt output file as the 2nd argument
 # (e.g. "perl recorderpauses.pl /Users/awarlau/LENAInteraction/MemphisLENARecordings/itsfiles/e20070225_191245_003110.its  /Users/awarlau/LENAInteraction/MemphisLENARecordings/postitsfiles/PauseTimes_e20070225_191245_003110.txt")
 
+# Written by Anne S. Warlaumont
+
 use strict; use warnings;
-
-print "test recorderpauses input 1: "; print $ARGV[0]; print "\n";
-print "test recorderpauses input 2: "; print $ARGV[1]; print "\n";
-
 
 open INPUTFILE, $ARGV[0] or die "Could not open its file\n";
 open OUTPUTFILE, ">", $ARGV[1] or die "Could not open recorderpauses output file\n";

@@ -28,7 +28,6 @@ fs = 16000;
 for segment = 1:size(StartEndTimes{1,1},1)
     speaker = StartEndTimes{1,1}(segment);
     if sum(strcmp(speaker,speakers)>0)
-        display('Test2');
         smallWav = audioread(bigWavFile,[max(round((StartEndTimes{1,2}(segment)-buffer)*fs),1),round((StartEndTimes{1,3}(segment)+buffer)*fs)]);
         audiowrite([OutFileBase,'_Segment_',num2str(segment),'_',char(StartEndTimes{1,1}(segment)),'.wav'],smallWav,fs);
     end
