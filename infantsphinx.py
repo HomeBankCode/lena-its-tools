@@ -1,15 +1,15 @@
 import subprocess, os
 
-class PhoneMeasures:
+class PhoneInfo:
     'Phones, true consonant count, and vowel count given by pocketsphinx'
     
-    def __init__(self, phone_list, consonant_count, vowel_count):
-        self.phone_list = phone_list
+    def __init__(self, sphinx_output, consonant_count, vowel_count):
+        self.sphinx_output = sphinx_output
         self.consonant_count = consonant_count
         self.vowel_count = vowel_count
         
 
-def getPhoneMeasures(wavFile, pocketsphinx_path):
+def get_phone_info(wavFile, pocketsphinx_path):
     phones = subprocess.check_output([
         'pocketsphinx_continuous',
         '-infile',wavFile,
@@ -32,5 +32,5 @@ def getPhoneMeasures(wavFile, pocketsphinx_path):
         p=="AA" or p=="AE" or p=="AH" or p=="AO" or p=="AW" or p=="AY"
         or p=="EH" or p=="ER" or p=="EY" or p=="IH" or p=="IY" or
         p=="OW" or p=="OY" or p=="UH" or p=="UW")
-    phone_measures = PhoneMeasures(phone_list, consonant_count, vowel_count)
+    phone_measures = PhoneInfo(sphinx_output, consonant_count, vowel_count)
     return phone_measures
