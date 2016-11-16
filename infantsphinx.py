@@ -1,3 +1,7 @@
+"""
+@author: Anne S. Warlaumont
+"""
+
 import subprocess, os
 
 class PhoneInfo:
@@ -18,7 +22,8 @@ def get_phone_info(wavFile, pocketsphinx_path):
         '-backtrace','yes',
         '-beam','1e-20',
         '-pbeam','1e-20',
-        '-lw','2.0'], stderr=open(os.devnull,'w'))
+        '-lw','2.0'],
+        stderr=open(os.devnull,'w'))
     sphinx_output = phones.replace('\n',' ')
     phone_list = sphinx_output.split(" ")
     consonant_count = sum(
