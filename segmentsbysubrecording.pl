@@ -31,21 +31,21 @@ $segoutfilebase =~ s/\.txt//g;
 $segoutfilebase =~ s/\.csv//g;
 my $subreccount = 1;
 open SEGOUTFILE, ">", $segoutfilebase . $subreccount . ".txt" or die "Could not open output file\n";
+my $headline;
 if ($isHeader) {
-	my $line = <SEGINPUTFILE>;
-	print SEGOUTFILE $line;
+	$headline = <SEGINPUTFILE>;
+	print SEGOUTFILE $headline;
 }
 while (my $line = <SEGINPUTFILE>){
 	my @seginfo = split(m[\s|,|\n],$line); # TO do: Add comma separation to this line, and also figure out what the ^I was for when processing one of the old formatted segments files.
 	my $pauseline = $pauses[$subreccount-1];
 	my @pauseinfo = split(m[\s|,|\n],$pauseline);
-	if ($seginfo[$stcol-1]>$pauseinfo[1]){
+	if ($seginfo[$stcol-1]>=$pauseinfo[1]){
 		$subreccount++;
 		close(SEGOUTFILE);
 		open  SEGOUTFILE, ">", $segoutfilebase . $subreccount . ".txt" or die "Could not open output file\n";
 		if ($isHeader) {
-			my $line = <SEGINPUTFILE>;
-			print SEGOUTFILE $line;
+			print SEGOUTFILE $headline;
 		}
 	}
 	print SEGOUTFILE $line;
