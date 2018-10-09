@@ -20,3 +20,15 @@ its_anonymization: A directory containing programs, and documentation, to remove
 RunFolder_segments.sh: This a shell script that allows you to run "segments.pl" on an entire folder of LENA ITS files. This will create an output CSV file that contains a list of all segment types and their start and end times.
 
 RunFolder_readits.sh: This is a shell script that allows you to run "readits_start_end_content.pl" on an entire folder of LENA ITS files. This will create a new output file for each input file with: 1) Child vocalization start and end times with duration of what is speech related and what is not speech related; 2) Adult vocalization start and end times; and 3) Child vocalization start and end times with duration of what is speech related and what is not speech related AND adult vocalization start and end times.
+
+#### segment_v2.py script
+
+This script requires pandas and pydub to be installed. To do so, run `pip install pandas pydub` (use `pip3` if you are working with Python 3). It is compatible with both Python 2 and Python 3.
+
+`$ python segment_v2.py path/to/directory/containing/wav_and_its/ [y]`
+
+Looks at all its files in one directory and creates 100 chn wav chunks randomly chosen. These new wav files are stored in the directory output, situated in the working directory. Add the option `y` to create intermediary files (that is one csv file containing all the CHN utterances' timestamps, and one csv file containing the 100 chosen CHN utterances' timestamps).
+
+Inside this script, each step is a function that can be used independently if need be in a separate python script.
+
+For this script to work, all its and wav files __must be in the same directory__. Moreover, the corresponding wav and its files __must have the same name__ _(if the its file is called `path/to/directory/filename.its`, the corresponding wav file must be named `path/to/directory/filename.wav`)_
