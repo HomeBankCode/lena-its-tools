@@ -23,12 +23,25 @@ RunFolder_readits.sh: This is a shell script that allows you to run "readits_sta
 
 #### segment_v2.py script
 
-This script requires pandas and pydub to be installed. To do so, run `pip install pandas pydub` (use `pip3` if you are working with Python 3). It is compatible with both Python 2 and Python 3.
+This script requires lxml, pandas and pydub to be installed. To do so, run `pip install lxml pandas pydub` (use `pip3` if you are working with Python 3). The script is compatible with both Python 2 and Python 3.
 
-`$ python segment_v2.py path/to/directory/containing/wav_and_its/ [y]`
+`$ python segment_v2.py path/to/directory/containing/wav_and_its/ name_of_babble_corpora.csv [i]`
 
 Looks at all its files in one directory and creates 100 chn wav chunks randomly chosen. These new wav files are stored in the directory output, situated in the working directory. Add the option `y` to create intermediary files (that is one csv file containing all the CHN utterances' timestamps, and one csv file containing the 100 chosen CHN utterances' timestamps).
 
 Inside this script, each step is a function that can be used independently if need be in a separate python script.
 
-For this script to work, all its and wav files __must be in the same directory__. Moreover, the corresponding wav and its files __must have the same name__ _(if the its file is called `path/to/directory/filename.its`, the corresponding wav file must be named `path/to/directory/filename.wav`)_
+There are several steps that you need to follow for the whole pipeline to work:
+- in the babble corpora spreadsheet, fill out the its_filename column with the name of the corresponding its files for each of the 10 lines
+- locally, create a directory in which to store the 10 its files, as well as the 10 corresponding .wav, __all in the same directory__; the .wav file __must have the same name__ as the corresponding .its file
+- download the BabbleCorpus_ViableParticipants by going in ‘File’ (top left corner), ‘Download as’, then choose the option that outputs a .csv file; move this .csv file in the directory created at the previous step and rename it so that the name does not contain spaces anymore (for example: ‘BabbleCorpora.csv’)
+
+The directory you created should contain something like:
+- file1.its
+- file1.wav
+- file2.its
+- file2.wav
+- …
+- BabbleCorpora.csv
+
+Make sure that file1.its, file2.its… are actually the names you wrote in the spreadsheet. If not, either correct the spreadsheet online and repeat the downloading step, or modify the name of your file to match the name in the spreadsheet.
