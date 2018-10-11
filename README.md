@@ -44,4 +44,4 @@ The directory you created should contain something like:
 - …
 - BabbleCorpora.csv
 
-Make sure that file1.its, file2.its… are actually the names you wrote in the spreadsheet. If not, either correct the spreadsheet online and repeat the downloading step, or modify the name of your file to match the name in the spreadsheet.
+Make sure that file1.its, file2.its… are actually the names you wrote in the spreadsheet. If not, either correct the spreadsheet online and repeat the downloading step, or modify the name of your file to match the name in the spreadsheet. The columns "corpus", "its_file" and "child_level_id" are used: make sure than these columns contain the required information.
