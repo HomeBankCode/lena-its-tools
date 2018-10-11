@@ -100,27 +100,33 @@ def list_to_csv(list_ts, output_file): # to remember intermediaries
     df.to_csv(output_file) # write dataframe to file
 #_______________________________________________________________________________
 
-def process_one_file(its_file, audio_file, spreadsheet):
+def process_one_file(its_files, audio_files, spreadsheet):
     # with open(its_file) as f:
     #     data = f.readlines()
     # f.close()
-    print(its_file)
+    print(its_files)
     # TODO
     # get information
     # child_id = get_child_id(its_file)
-    corpus, child_id = get_corpus_child_id_from_spreadsheet(spreadsheet, its_file)
-    age_in_days = get_age_in_days(its_file)
-
-    full_audio = load_audio(audio_file) # load audio once
-    all_chn_timestamps = find_all_chn(its_file) # get child timestamps
+    corpus, child_id = get_corpus_child_id_from_spreadsheet(spreadsheet, its_files[0])
+    age_in_days = get_age_in_days(its_files[0])
+    full_audio = []
+    for audio in audio_files:
+        if len(full_audio)==0:
+            full_audio = load_audio(audio)
+        else:
+            full_audio = full_audio + load_audio(audio) # load each audio and add to full_audio
+    all_chn_timestamps = []
+    for its in its_files:
+        all_chn_timestamps += find_all_chn(its) # get child timestamps
     # randomly sample 100 items from the last list
     chn100_timestamps = random.sample(all_chn_timestamps, min(100,len(all_chn_timestamps)))
 
     if len(sys.argv)>2:
-        list_to_csv(all_chn_timestamps, its_file[:-4]+"_all_chn_timestamps.csv")
-        list_to_csv(chn100_timestamps, its_file[:-4]+"_chn_100_timestamps.csv")
+        list_to_csv(all_chn_timestamps, its_files[0][:-4]+"_all_chn_timestamps.csv")
+        list_to_csv(chn100_timestamps, its_files[0][:-4]+"_chn_100_timestamps.csv")
 
-    create_wav_chunks(chn100_timestamps, full_audio, audio_file, corpus, age_in_days, child_id) # create 100 wav chunks
+    create_wav_chunks(chn100_timestamps, full_audio, audio_files[0], corpus, age_in_days, child_id) # create 100 wav chunks
 #_______________________________________________________________________________
 
 if __name__ == "__main__":
@@ -131,13 +137,22 @@ if __name__ == "__main__":
     working_dir = sys.argv[1]
     spreadsheet = sys.argv[2] # either name of corpus if the files have been renamed or the babblecorpus spreadsheet
 
-    for filename in os.listdir(working_dir):
+    for filename in sorted(os.listdir(working_dir)):
         if filename.endswith(".its"):
             # its_file = sys.argv[1]
-            its_file = working_dir+"/"+filename # path to its file (path/to/file.its)
+            its_files = [working_dir+"/"+filename] # path to its file (path/to/file.its)
             # audio_file = sys.argv[2]
-            audio_file = working_dir+"/"+filename[:-4]+".wav" # path to audio file (path/to/audio_file.wav)
-            if not os.path.exists(audio_file):
-                print("file {} does not have its corresponding audio in the same directory - please place all files in the same directory and name .its and .wav file the same way (if the .its file is called blabla.its, the .wav file should be called blabla.wav)".format(its_file))
-                continue
-            process_one_file(its_file, audio_file, working_dir+'/'+spreadsheet)
+            audio_files = [working_dir+"/"+filename[:-4]+".wav"] # path to audio file (path/to/audio_file.wav)
+
+            # if there are several files from the same day
+            if filename[-6]=='_':
+                for filename_other in os.listdir(working_dir):
+                    if filename_other.endswith('.its') and filename[:-6]==filename_other[:-6] and filename[-5]!=filename_other[-5]:
+                        its_files.append(working_dir+"/"+filename_other)
+                        audio_files.append(working_dir+"/"+filename_other[:-4]+".wav")
+
+            for audio in audio_files:
+                if not os.path.exists(audio):
+                    print("file {} does not have its corresponding audio in the same directory - please place all files in the same directory and name .its and .wav file the same way (if the .its file is called blabla.its, the .wav file should be called blabla.wav)".format(its_file))
+                    continue
+            process_one_file(its_files, audio_files, working_dir+'/'+spreadsheet)
