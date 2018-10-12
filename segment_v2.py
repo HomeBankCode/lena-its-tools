@@ -136,10 +136,11 @@ if __name__ == "__main__":
 
     working_dir = sys.argv[1]
     spreadsheet = sys.argv[2] # either name of corpus if the files have been renamed or the babblecorpus spreadsheet
-
+    processed_files = []
     for filename in sorted(os.listdir(working_dir)):
-        if filename.endswith(".its"):
+        if filename.endswith(".its") and filename not in processed_files:
             # its_file = sys.argv[1]
+            processed_files.append(filename)
             its_files = [working_dir+"/"+filename] # path to its file (path/to/file.its)
             # audio_file = sys.argv[2]
             audio_files = [working_dir+"/"+filename[:-4]+".wav"] # path to audio file (path/to/audio_file.wav)
@@ -150,7 +151,7 @@ if __name__ == "__main__":
                     if filename_other.endswith('.its') and filename[:-6]==filename_other[:-6] and filename[-5]!=filename_other[-5]:
                         its_files.append(working_dir+"/"+filename_other)
                         audio_files.append(working_dir+"/"+filename_other[:-4]+".wav")
-
+                        processed_files.append(filename_other)
             for audio in audio_files:
                 if not os.path.exists(audio):
                     print("file {} does not have its corresponding audio in the same directory - please place all files in the same directory and name .its and .wav file the same way (if the .its file is called blabla.its, the .wav file should be called blabla.wav)".format(its_file))
