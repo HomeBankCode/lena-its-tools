@@ -66,7 +66,7 @@ def extract_time(text):
     # removes PT and S from timestamp string and converts it to float
     return float(text[2:-1])
 
-def find_all_chn(its_file, id="FAN"):
+def find_all_chn(its_file, id="CHN"):
     chi_utt = []
     # parse as xml file
     xmldoc = etree.parse(its_file)
