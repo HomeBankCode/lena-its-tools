@@ -16,9 +16,9 @@ function [] = getIndividualAudioSegments(SegmentsFile,bigWavFile,OutFileBase,buf
 %     OutFileBase = Where audio segments will be written + the beginning part of each segment filename
 %         e.g., '~/Desktop/Gina/Participants/WW05/Segments/e20131210_144819_009143' 
 %     buffer = Should be in seconds and will add some time to the beginning and ending of each audio segment before extracting it 
-%         e.g., '.3'
+%         e.g., '0' or '.3'
 %     speakers = An array holding the speaker types whose segments you would like to output. E.g. {'CHNSP','FAN','MAN'} for child speech-related, female adult, and male adult, "near" (loud) segments only. 
-%     e.g., '~/Desktop/Gina/Participants/WW05/e20131210_144819_009143_Segments.csv','~/Desktop/Gina/Participants/WW05/e20131210_144819_009143.wav','~/Desktop/Gina/Participants/WW05/Segments/e20131210_144819_009143','.3',{'CHNSP','FAN','MAN'});
+%     e.g., '~/Desktop/Gina/Participants/WW05/e20131210_144819_009143_Segments.csv','~/Desktop/Gina/Participants/WW05/e20131210_144819_009143.wav','~/Desktop/Gina/Participants/WW05/Segments/e20131210_144819_009143','0',{'CHNSP','FAN','MAN'});
 % 3.) Press Return to run the program
 
 %play the individual speaker segments:
