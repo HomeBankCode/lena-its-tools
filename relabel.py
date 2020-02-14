@@ -1,4 +1,4 @@
-# Using the output of segments.pl, play all segments meeting certain criteria, prompt the user to relabel who is speaking, and save output to a CSV file.
+# Tools for huamn listeners to manually identify sound types
 
 import pyglet, scipy.io.wavfile, numpy, os.path
 
@@ -41,4 +41,11 @@ def relabel_by_timebin(wavfile,outfile,coding_start_time,coding_end_time,bin_siz
     outf.close()
     
     return
+
+def relabel_by_segment(wavfile,outfile,segmentsfile)
+    
+    # Using the output of segments.pl,
+    # play all segments meeting certain criteria,
+    # prompt the user to relabel who is speaking,
+    # and save output to a CSV file.
     
